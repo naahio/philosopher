@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philos.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naahio <naahio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:23:20 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/26 09:23:20 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/26 02:32:34 by naahio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 
 # include <stdio.h>
 # include <stdlib.h>
-# include <unistd>
+# include <unistd.h>
 # include <fcntl.h>
 # include <semaphore.h>
 # include <pthread.h>
@@ -25,9 +25,22 @@
 
 typedef struct s_data
 {
-	
+	pthread_mutex_t *mutex;
+    pthread_mutex_t *status;
+    pthread_mutex_t *meals;
+    pthread_mutex_t *prev;
+    long            time_to_start;
+    int             me;
+    int             prev_meal;
+    int             philo_numb;
+    int             time_to_die;
+    int             time_to_eat;
+    int             time_to_sleep;
+    int             numb_of_eating;
+    int             numb_of_time_to_eat;
 }t_data;
 
 int	ft_atoi(char *str);
+int	check_argv(int argc, char **argv);
 
 #endif

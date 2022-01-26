@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: marvin <marvin@student.42.fr>              +#+  +:+       +#+        */
+/*   By: naahio <naahio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:26:47 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/26 09:26:47 by marvin           ###   ########.fr       */
+/*   Updated: 2022/01/26 02:21:05 by naahio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static	int	ft_isspace(char c)
 		||c == '\v' || c == '\n' || c == '\r' );
 }
 
-int	ft_atoi(const char *str)
+int	ft_atoi(char *str)
 {
 	int	result;
 	int	sign;
