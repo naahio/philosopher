@@ -6,7 +6,7 @@
 /*   By: naahio <naahio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:23:20 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/26 02:32:34 by naahio           ###   ########.fr       */
+/*   Updated: 2022/01/28 02:22:32 by naahio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,13 @@
 
 typedef struct s_data
 {
-	pthread_mutex_t *mutex;
+	pthread_mutex_t *fork;
     pthread_mutex_t *status;
     pthread_mutex_t *meals;
     pthread_mutex_t *prev;
     long            time_to_start;
     int             me;
-    int             prev_meal;
+    int             last_eating_time;
     int             philo_numb;
     int             time_to_die;
     int             time_to_eat;
