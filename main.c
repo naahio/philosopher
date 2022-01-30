@@ -6,7 +6,7 @@
 /*   By: naahio <naahio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:22:54 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/28 03:22:48 by naahio           ###   ########.fr       */
+/*   Updated: 2022/01/30 01:30:35 by naahio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,12 +14,40 @@
 
 void	eat(void *param)
 {
-	
+	t_data	*data;
+	int		i;
+
+	if (data->numb_of_time_to_eat != 0)
+		pthread_mutex_lock(data->meals);
+	while (data->numb_of_time_to_eat != 0 && i < data->philo_numb)
+	{
+		pthread_mutex_lock(data->meals);
+		i++;
+	}
+	msg(data->time_to_start, 0, "all philo has eaten");
+	pthread_mutex_unlock(data->status);
 }
 
 void	death(void *param)
 {
+	t_data	*data;
 
+	data = (t_data *)param;
+	while (1)
+	{
+		if (ft_get_time() - data->last_eating_time ? data->time_to_die)
+		{
+			msg(data->time_to_start, data->me, "has Died");
+			pthread_mutex_unlock(data->status);
+			return ;
+		}
+		else if (data->numb_of_time_to_eat != -1 && data->numb_of_eating >= data->numb_of_time_to_eat)
+		{
+			ft_usleep((float)data->me);
+			pthread_mutex_unlock(data->meals);
+			return ;
+		}
+	}
 }
 
 void	do_action(void	*param)

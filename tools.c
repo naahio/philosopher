@@ -6,7 +6,7 @@
 /*   By: naahio <naahio@student.42.fr>              +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/01/26 09:26:47 by marvin            #+#    #+#             */
-/*   Updated: 2022/01/26 02:21:05 by naahio           ###   ########.fr       */
+/*   Updated: 2022/01/30 01:36:29 by naahio           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,3 +70,21 @@ int	check_argv(int argc, char **argv)
 	}
 	return (1);
 }
+
+int	ft_get_time()
+{
+	struct timeval time_val;
+
+	gettimeofday(&time_val, NULL);
+	return (time_val.tv_sec * 1000 + time_val.tv_usec / 1000);
+}
+
+void	ft_usleep(int len)
+{
+	long long time;
+
+	time = ft_get_time();
+	while (ft_get_time() < time + len)
+		usleep(len);
+}
+
